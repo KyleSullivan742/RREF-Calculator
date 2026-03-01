@@ -125,7 +125,6 @@ while(row < len(matrix) and col < colLimit):
                     print(p)
                 print("\n")
     if matrix[row][col] != 0: # if == 0, desired pivot column was not found
-        #print("occurs in column", col)
         if matrix[row][col] != 1.0: # if because no need to scale if pivot already 1
             if showSteps:
                 print(f"step {stepNumber}: R{row+1} -> {1/matrix[row][col]}R{row+1}")
@@ -147,20 +146,8 @@ while(row < len(matrix) and col < colLimit):
                     print("\n")
         row += 1
         col += 1
-    else:#maintain the row but move the column
-        col += 1
-        
-    '''
-    for i in range(len(matrix)):
-        #print("Stuck here 4")
-        if i != row and matrix[i][col] != 0 and matrix[row][col] != 0: #subtract all rows from the current one
-            print(f"subtract-: {matrix[i][col]}/{matrix[row][col]}")
-            subtract(matrix[i], 1, matrix[row], matrix[i][col] / matrix[row][col])
-    #print("this scale")
-    if matrix[row][col] != 0 and matrix[row][col] != 1:
-        scale(row, 1/matrix[row][col])
-    '''
-    
+    else:#if desired pivot not found, increment the row but maintain the column
+        col += 1    
 
 if augment == True: #check for zero rows with augmented values. If discovered, inconsistent
     for row in reversed(matrix):
@@ -174,21 +161,6 @@ if augment == True: #check for zero rows with augmented values. If discovered, i
                 print("The matrix is inconsistent. Thus, no RREF form.")
                 exit()
 
-        
-    
-    '''
-    for row in reversed(matrix):
-        for col in range(len(row)-1):
-            if row[col] != 0:
-                break
-        if col == len(row)-2 and row[len(row)-1] != 0:
-            break
-        if col < len(row)-1 and row[col] != 0:
-            break
-    print("The matrix is inconsistent. Thus, no RREF form.")
-    exit()
-    '''
-
 print("RREF matrix:")   
 if(roundOutputTo != -1):
     for i in range(len(matrix)):
@@ -198,4 +170,4 @@ if(roundOutputTo != -1):
 else:
     for i in matrix:
         print(i)
-#print(matrix)
+
