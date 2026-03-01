@@ -1,10 +1,10 @@
-#RREF Calculator
+# RREF Calculator
 A python program that calculates reduced row echelon form (RREF) matrices of user inputted matrices.
 
-##Program Requirements: 
+## Program Requirements: 
 RREF Calculator simply consists of a single .py file, developed in Python version 3.14.2.
 
-##Running the Program
+## Running the Program
 To start the program, simply enter "Python RREF.py", assuming your working directory contains RREF.py. The program supports several command line options including: 
   -a: make the right most column augmented
   -h: show command line options
